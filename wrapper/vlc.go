@@ -198,6 +198,13 @@ func (p *Player) execCommand(cmd string) (output []string, err error) {
 	return result.output, result.err
 }
 
+func (p *Player) PublicExecCommand(cmd string) (output []string, err error) {
+	c := newCommand(cmd)
+	p.commands <- c
+	result := <-c.result
+	return result.output, result.err
+}
+
 func (p *Player) parseTracks(output []string) (tracks map[int]string, activeTrack int) {
 	tracks = make(map[int]string, len(output))
 	activeTrack = -1

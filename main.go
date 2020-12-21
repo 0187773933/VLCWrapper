@@ -2,7 +2,7 @@ package main
 
 import (
 	"time"
-	vlc "github.com/0187773933/vlc/wrapper"
+	vlc "github.com/0187773933/VLCWrapper/wrapper"
 )
 
 func main() {
